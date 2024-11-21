@@ -1,4 +1,6 @@
 import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
+import tailwindAnimate from 'tailwindcss-animate';
 
 export default {
   content: [
@@ -8,11 +10,15 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        primary: ['var(--font-hanken-grotesk)', ...fontFamily.sans],
+        spacemono: ['var(--font-space-mono)', ...fontFamily.sans],
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindAnimate],
 } satisfies Config;
