@@ -1,4 +1,10 @@
 import type { NextConfig } from 'next';
+import nextRemoteRefresh from 'next-remote-refresh';
+import path from 'path';
+
+const withRemoteRefresh = nextRemoteRefresh({
+  paths: [path.resolve(__dirname, 'src', 'contents')],
+});
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -25,4 +31,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withRemoteRefresh(nextConfig);

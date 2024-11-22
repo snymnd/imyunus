@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Hanken_Grotesk, Space_Mono } from 'next/font/google';
+import { useRemoteRefresh } from 'next-remote-refresh/hook';
 
 import '@/styles/globals.css';
 
@@ -19,6 +20,8 @@ const space_mono = Space_Mono({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  useRemoteRefresh();
+
   return (
     <div
       className={cn(
