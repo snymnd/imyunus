@@ -23,6 +23,9 @@ importers:
       embla-carousel-react:
         specifier: ^8.5.1
         version: 8.5.1(react@19.0.0-rc-66855b96-20241106)
+      lucide-icons-react:
+        specifier: ^1.0.2
+        version: 1.0.2(react@19.0.0-rc-66855b96-20241106)
       next:
         specifier: 15.0.3
         version: 15.0.3(@babel/core@7.26.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
@@ -2528,6 +2531,11 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lucide-icons-react@1.0.2:
+    resolution: {integrity: sha512-OlZEsaI3g5kZihSD6hmRgtXPqlHwJ0YerSYMFOxeoMraRm99zSALYt+r/uqkg8JEXB5qtDGo0DWk23nX+civQw==}
+    peerDependencies:
+      react: ^16.8.6 || ^17
 
   mdn-data@2.0.28:
     resolution: {integrity: sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==}
@@ -6060,6 +6068,11 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-icons-react@1.0.2(react@19.0.0-rc-66855b96-20241106):
+    dependencies:
+      prop-types: 15.8.1
+      react: 19.0.0-rc-66855b96-20241106
 
   mdn-data@2.0.28: {}
 
