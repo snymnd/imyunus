@@ -38,7 +38,7 @@ export default function ProjectCard({
     >
       <figure className='w-full aspect-video rounded-md overflow-hidden'>
         <Image
-          src={imagePath}
+          src={`/images/projects/${imagePath}`}
           alt={title}
           width={400}
           height={245}

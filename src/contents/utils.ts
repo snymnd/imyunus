@@ -1,8 +1,15 @@
 import fs from 'fs';
+import { getFrontmatter } from 'next-mdx-remote-client/utils';
 import path from 'path';
 
-export const RE = /\.mdx?$/; // Only .md(x) files
+import { Frontmatter } from '@/types/content';
+
+export const RE = /\.mdx$/; // Only .mdx files
 export type MdxPostCategory = 'projects' | 'blogs';
+
+type Post = {
+  slug: string;
+} & Frontmatter;
 
 export const getMdxSource = async (
   filename: string,
@@ -26,6 +33,19 @@ export const getMarkdownFiles = (postCategory: MdxPostCategory): string[] => {
   return fs
     .readdirSync(path.join(process.cwd(), 'src', 'contents', postCategory))
     .filter((filePath: string) => RE.test(filePath));
+};
+
+/** Get post list and its information */
+export const getPostListWithInformation = (
+  postCategory: MdxPostCategory,
+): (Post | undefined)[] => {
+  const files = getMarkdownFiles(postCategory);
+
+  const posts = files.map((filename) => {
+    return getPostInformation(filename, postCategory);
+  });
+
+  return posts;
 };
 
 /** get the source and format from a slug !*/
@@ -58,4 +78,39 @@ export const getMarkdownFromSlug = async (
       format: 'mdx',
     };
   }
+};
+
+export const getSourceSync = (
+  filename: string,
+  postCategory: MdxPostCategory,
+): string | undefined => {
+  const sourcePath = path.join(
+    process.cwd(),
+    'src',
+    'contents',
+    postCategory,
+    filename,
+  );
+  if (!fs.existsSync(sourcePath)) return;
+  return fs.readFileSync(sourcePath, 'utf8');
+};
+
+/** get the frontmatter and slug of a file */
+export const getPostInformation = (
+  filename: string,
+  postCategory: MdxPostCategory,
+) => {
+  const source = getSourceSync(filename, postCategory);
+
+  if (!source) return;
+
+  const frontmatter = getFrontmatter<Frontmatter>(source).frontmatter;
+
+  const post = {
+    ...frontmatter,
+    // remove the .mdx extension for the slug
+    slug: filename.replace(/\.mdx$/, ''),
+  };
+
+  return post;
 };

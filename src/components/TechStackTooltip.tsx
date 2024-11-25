@@ -23,6 +23,7 @@ export default function TechStackToolTip({
   ...rest
 }: TechStackToolTipProps) {
   const techStack = TechStackIcons[_techStack];
+  if (!techStack) return null;
 
   return (
     <TooltipProvider>

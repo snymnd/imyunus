@@ -5,12 +5,21 @@ import cn from '@/lib/cn';
 import Layout from '@/components/layout/Layout';
 import NextLink from '@/components/NextLink';
 import ProjectCard from '@/components/ProjectCard';
+import Seo from '@/components/Seo';
 import TechStackToolTip from '@/components/TechStackTooltip';
-import { projects } from '@/constant/projects';
+import { getPostListWithInformation } from '@/contents/utils';
 
-export default function Home() {
+import { Post } from '@/types/content';
+
+type HomeProps = {
+  projects: Post[];
+};
+
+export default function Home({ projects }: HomeProps) {
   return (
     <Layout>
+      <Seo templateTitle='Home' />
+
       {/* Hero */}
       <section className='relative layout flex gap-x-8 flex-col sm:flex-row items-center justify-center sm:justify-between section-screen'>
         <div className='space-y-10 sm:space-y-16'>
@@ -81,7 +90,7 @@ export default function Home() {
             <h2 className='hidden sm:block text-5xl font-spacemono font-bold tracking-tighter'>
               About Me
             </h2>
-            <p className='prose mt-2'>
+            <p className='mt-2 text-gray-600 leading-loose'>
               Hi, I’m <strong>Muhammad Yunus!</strong> I’m a Frontend Developer
               who loves building intuitive and functional web applications. I
               enjoy solving problems and working collaboratively to bring ideas
@@ -113,23 +122,35 @@ export default function Home() {
           <h2 className='text-4xl sm:text-5xl font-spacemono font-bold tracking-tighter leading-tight'>
             Projects
           </h2>
-          <p className='text-sm sm:text-base leading-relaxed text-gray-500'>
+          <p className='text-sm sm:text-base leading-relaxed text-gray-500 mt-2'>
             Here are some of my works
           </p>
           <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4'>
-            {projects.map((project, index) => (
-              <ProjectCard
-                description={project.description}
-                href={project.href}
-                name={project.name}
-                techStack={project.techStack}
-                imagePath={project.imagesPath[0]}
-                key={index}
-              />
-            ))}
+            {projects
+              ?.sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0))
+              .map((project, index) => (
+                <ProjectCard
+                  description={project.summary}
+                  href={`/projects/${project.slug}`}
+                  name={project.title}
+                  techStack={project.techStack || []}
+                  imagePath={project.images[0]}
+                  key={index}
+                />
+              ))}
           </div>
         </div>
       </section>
     </Layout>
   );
+}
+
+export function getStaticProps() {
+  const projects = getPostListWithInformation('projects');
+
+  return {
+    props: {
+      projects,
+    },
+  };
 }

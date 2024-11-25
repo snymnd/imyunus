@@ -1,17 +1,20 @@
 import { TocItem } from 'remark-flexible-toc';
 
+import { TechStackType } from '@/constant/tech-stack';
+
 export type Frontmatter = {
   title: string;
   author: string;
   publishedAt?: string;
   updatedAt?: string;
+  techStack?: TechStackType[];
   summary: string;
-  liveDemo: string;
-  repositories: {
+  priority?: number;
+  repositories?: {
     name: string;
     url: string;
   }[];
-  priority: number;
+  liveDemo?: string;
   images: string[];
 };
 
