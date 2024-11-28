@@ -7,7 +7,7 @@ export default {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/contents/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -18,6 +18,33 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            p: {
+              fontSize: '1rem',
+              lineHeight: '1.75',
+            },
+            h2: {
+              marginBottom: '0.75rem',
+              fontSize: '1.5rem',
+            },
+            h3: {
+              marginTop: '1rem',
+              marginBottom: '0.5rem',
+              fontSize: '1.25rem',
+            },
+            h4: {
+              marginTop: '1rem',
+              marginBottom: '0.5rem',
+              fontSize: '1rem',
+            },
+            figure: {
+              margin: 0,
+            },
+          },
+        },
       },
     },
   },

@@ -36,9 +36,6 @@ body {
   background: var(--background);
 }
 
-.prose p {
-  @apply text-base;
-}
 /* #region  /**=========== rehype-pretty-code =========== */
 pre {
   @apply !px-0 rounded-lg;
