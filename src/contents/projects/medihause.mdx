@@ -1,48 +1,77 @@
 ---
 title: 'Medihause'
-publishedAt: '2024-11-23'
-updatedAt: '2024-11-23'
 images: ['medihause-1.png', 'medihause-2.png', 'medihause-3.png']
-techStack: ['nextjs', 'tailwind', 'typescript']
-summary: 'Web app providing electronic medical records and integrated health facility management with AI technology.'
+techStack: ['nextjs', 'react', 'tailwind', 'typescript']
+priority: 10
+summary: 'Web app providing electronic medical records and integrated health facility management'
+liveDemo: 'https://medihause.id'
 ---
 
 ## Overview
 
-The debate between using spaces and tabs for indentation in coding may seem trivial to the uninitiated, but it is a topic that continues to inspire passionate discussions among developers. This seemingly minor choice can affect code readability, maintenance, and even team dynamics.
+Medihause is a platform that provides electronic medical records and integrated health facility management. Medihause offers several services to help manage your health facilities, such as medicine stock management, pharmacy point of sale (POS), sales reports, and patient medical records.
 
-Let's delve into the arguments for both sides and consider why this debate remains relevant in the software development world.
+In this project, I was asked to lead the frontend team of 3 developers (including myself) to implement existing UI designs of application dashboard and integrate them with developed APIs.
 
-```ts
-function greet(name: string): string {
-  return `Hello, ${name}!`;
-}
-asd;
-let message: string = greet(123);
-```
+## Challange
 
-## The Case for Spaces
+Since this is a _green field_ project, we had a lot of things to do. The main challenge for me was keeping up with time. We had around two months to implement over 50+ pages/components and integrate 10+ API endpoints (API development was in progress at that time). Fortunately, the design was quite consistent, so we could manage to make reusable and customizable components to boost our development progress.\
+Since most of the dashboard pages consisted of tables, dialogs, modals, and forms, preparing those components first alongside the other design system elements like typography and color helped a lot when slicing the design. At the end of the day, we managed to slice over 50+ pages/components in the first month, so we were able to focus on the integration process in the second month.
 
-Advocates for using spaces argue that it ensures consistent code appearance across different editors, tools, and platforms. Because a space is a universally recognized character with a consistent width, code indented with spaces will look the same no matter where it's viewed. This consistency is crucial for maintaining readability and avoiding formatting issues when code is shared between team members or published online.
+Communication was also a pain point of this project. Since I was working remotely, making sure our team did their part correctly and on time was a whole different story besides coding itself. So I tried to keep in contact with my team. Having weekly stand-ups to assign tasks, evaluate previous work, and open Q&A sessions helped us keep the progress on track. I also regularly updated and asked about my team's progress, ensured there were no blockers, and if we had any, we could discuss solutions immediately.
 
-Additionally, some programming languages and style guides explicitly recommend spaces for indentation, suggesting a certain number of spaces (often two or four) per indentation level. Adhering to these recommendations can be essential for projects that aim for best practices in code quality and readability.
+## TechStack and Tools
 
-## The Case for Tabs
+<div className='flex gap-x-3'>
+  <TechStackToolTip techStack='nextjs' className='size-10' />
+  <TechStackToolTip techStack='react' className='size-10' />
+  <TechStackToolTip techStack='typescript' className='size-10' />
+  <TechStackToolTip techStack='tailwind' className='size-10' />
+  <TechStackToolTip techStack='notion' className='size-10' />
+  <TechStackToolTip techStack='figma' className='size-10' />
+</div>
 
-On the other side of the debate, proponents of tabs highlight the flexibility that tabs offer. Because the width of a tab can be adjusted in most text editors, individual developers can choose how much indentation they prefer to see, making the code more accessible and comfortable to read on a personal level. This adaptability can be particularly beneficial in teams with diverse preferences regarding code layout.
+**NextJs** → a React framework with many utilities; we used it mainly to build the web user interfaces.\
+**React** → a JavaScript library to build user interfaces based on components; we used it to build the web UI library so the main app and its UI components were separated. This made the main app lighter to build and deploy.\
+**TypeScript** → a JavaScript programming language with static typing. We used it to add type safety to code by checking for type mismatches at compile time. This helps identify bugs early and improves the developer experience.\
+**TailwindCSS** → a CSS framework that we used to make styling for the web easier.\
+**Notion** → a productivity software that we used to manage and keep track of the project progress.\
+**Figma** → a design tool that used to design the application UI/UX.
 
-### The Case for Tabs Another
+## Result
 
-Tabs also have the advantage of semantic meaning. A tab is explicitly meant to represent indentation, whereas a space is used for many purposes within code. This distinction can make automated parsing and manipulation of code simpler, as tools can more easily recognize and adjust indentation levels without confusing them with spaces used for alignment.
+Bellow footage some of my works in this project.\
+\*\*_footage using static dummy data_
 
-### The Case for Tabs Another2
-
-## Hybrid Approaches and Team Dynamics
-
-The debate often extends into discussions about hybrid approaches, where teams might use tabs for indentation and spaces for alignment within lines, attempting to combine the best of both worlds. However, such strategies require clear team agreements and disciplined adherence to coding standards to prevent formatting chaos.
-
-Ultimately, the choice between spaces and tabs often comes down to team consensus and project guidelines. In environments where collaboration and code sharing are common, agreeing on a standard that everyone follows is more important than the individual preferences of spaces versus tabs. Modern development tools and linters can help enforce these standards, making the choice less about technical limitations and more about team dynamics and coding philosophy.
-
-## Conclusion
-
-While the spaces vs. tabs debate might not have a one-size-fits-all answer, it underscores the importance of consistency, readability, and team collaboration in software development. Whether a team chooses spaces, tabs, or a hybrid approach, the key is to make a conscious choice that serves the project's needs and to adhere to it throughout the codebase. As with many aspects of coding, communication and agreement among team members are paramount to navigating this classic programming debate.
+<div className='space-y-4'>
+  <VideoCard
+    title='Dashboard → sidebar, tabs, statistic, toaster, dropdown'
+    src='/videos/projects/medihause-dashboard.mp4'
+  />
+  <VideoCard
+    title='Cashier → cart, modal, payment, product catalog, dialog'
+    src='/videos/projects/medihause-cashier-sale.mp4'
+  />
+  <div className='grid sm:grid-cols-2 gap-4'>
+    <VideoCard
+      title='Items → paginated table, product form'
+      src='/videos/projects/medihause-items-catalog.mp4'
+    />
+    <VideoCard
+      title='Items → catalog, product form'
+      src='/videos/projects/medihause-items-catalog-galery.mp4'
+    />
+    <VideoCard
+      title='Adjustment → settings form, role assignment'
+      src='/videos/projects/medihause-adjustment.mp4'
+    />
+    <VideoCard
+      title='Report → range datepicker, statistic card'
+      src='/videos/projects/medihause-datepicker-report.mp4'
+    />
+    <VideoCard
+      title='Receipt → datepicker input, receipt form'
+      src='/videos/projects/medihause-receipt.mp4'
+    />
+  </div>
+</div>
