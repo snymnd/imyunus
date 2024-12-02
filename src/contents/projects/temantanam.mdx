@@ -1,0 +1,75 @@
+---
+title: 'TemanTanam'
+images: ['temantanam-1.png', 'temantanam-2.png', 'temantanam-3.png']
+techStack: ['nodejs', 'hapi', 'postgre', 'gcp']
+summary: 'Mobile app that helps users identify and grow plants at home'
+priority: 8
+repositories:
+  [{ name: 'main repository', url: 'https://github.com/snymnd/TemanTanam' }]
+---
+
+## Overview
+
+One of the easiest ways to contribute to a greener environment is by growing plants at home. Houseplants and garden plants are particularly accessible options that both benefit the environment and beautify our living spaces. Unfortunately, interest in home gardening remains low.\
+This low interest stems from two main factors: a lack of awareness about the benefits of growing plants and insufficient knowledge about plant care. According to research by the Silvikultur Department, Faculty of Forest, IPB, Indonesia hosts approximately 25,000 plant species. Manual identification of these species requires significant time and resources.
+
+To address this challenge, we're developing an app that educates users about plants and provides step-by-step growing guidance. We believe this will help more people discover the benefits of plant cultivation and contribute to a more sustainable future.
+
+This is our team capstone project at [Bangkit Academy 2023 Program](https://grow.google/intl/id_id/bangkit/?tab=cloud-computing) led by Google, Tokopedia, Gojek, & Traveloka 2023. Our team consists of one mobile developer, three machine learning developers, and two cloud computing developers (including myself). As a cloud computing cohort member, I'm responsible for deploying the application on Google Cloud Platform (GCP) infrastructure and developing the REST API to support application functionality.
+
+## Challenge
+
+Developing **TemanTanam** as part of the Bangkit Academy 2023 program was both exciting and demanding. With over 5,000 participants from diverse universities across Indonesia, forming the right team was a significant challenge. We needed a balanced team that combined expertise in Android development, Machine Learning, and Cloud Computing. Once the team was formed, agreeing on a capstone project idea proved equally challenging. We spent considerable time brainstorming and debating to ensure the project addressed a real-world problem while aligning with everyone's skills and interests.
+
+During development, we tackled several technical challenges, including API integration, find the suitable dataset, and deployment on Google Cloud Platform (GCP). These obstacles tested our ability to collaborate, adapt, and problem-solve under pressure. Despite these challenges, we worked together effectively, leveraging each member's strengths and maintaining focus on our goals. Ultimately, we successfully developed and presented the **TemanTanam** capstone project.
+
+## TechStack, Tools, and Architecture
+
+<div className='flex gap-x-3'>
+  <TechStackToolTip techStack='nodejs' className='size-8' />
+  <TechStackToolTip techStack='hapi' className='size-10' />
+  <TechStackToolTip techStack='postgre' className='size-8' />
+  <TechStackToolTip techStack='gcp' className='size-10' />
+</div>
+
+**Nodejs** → Javascript runtime environment for REST API development\
+**Hapi** → Backend framework that we use to boost REST API development process\
+**PostgreSQL** → Free, open-source relational database management system (RDBMS) for storing structured data\
+**Cloud Run** → GCP serverless compute service for deploying the machine learning model prediction API\
+**App Engine** → GCP fully managed, serverless platform for deploying the backend REST API\
+**Cloud Storage** → GCP fully managed cloud-based database service for hosting our RDBMS
+
+<ImageCard
+  title='TemanTanam cloud architecture'
+  className='bg-black'
+  width={1905}
+  height={966}
+  src='/images/projects/temantanam-architecture.png'
+/>
+
+## Presentation & Demo
+
+Here is the presentation and demo video of TemanTanam app
+
+<div className='w-full aspect-video border-2 border-black rounded-lg overflow-hidden'>
+  <iframe
+    width='876'
+    height='495'
+    src='https://www.youtube.com/embed/1kHCcojFXlI?si=63Cve6_jgMnEdoB3&amp;start=96'
+    title='YouTube video player'
+    frameBorder='0'
+    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+    referrerPolicy='strict-origin-when-cross-origin'
+    allowFullScreen
+    className='w-full h-full'
+  />
+</div>
+
+<ImageCard
+  title='TemanTanam Team'
+  containerClassName='w-full mt-4'
+  className='w-full'
+  width={1920}
+  height={1080}
+  src='/images/projects/temantanam-team.png'
+/>
