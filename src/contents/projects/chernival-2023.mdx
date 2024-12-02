@@ -1,0 +1,153 @@
+---
+title: 'Chernival 2023'
+images:
+  [
+    'chernival-1.png',
+    'chernival-2.png',
+    'chernival-3.png',
+    'chernival-dashboard-5.png',
+  ]
+techStack: ['nextjs', 'typescript', 'tailwind']
+summary: 'Official website for Chernivel 2023 event'
+liveDemo: 'https://chernival-its.com'
+priority: 2
+---
+
+## Overview
+
+Chernival (Chemical Engineering Innovation Festival) 2023 is an annual series of events held by Chemical Engineering ITS. Its goal is to provide a platform for rising generations to improve and contribute to the industrial world at both national and international levels.
+
+I worked as a frontend developer for this project, primarily handling the dashboard for user registration in the Chernival contest event.
+
+## Challenge
+
+This project wasn't a _green field_ — there was an existing project, but we had no access to its codebase. With only screenshots and workflow documentation available, our team decided to rebuild from scratch with a new design and tech stack while maintaining all the original features. Time was a significant constraint: we needed to launch the website within two months with a team of three frontend and two backend developers, all college students in the midst of final exams.
+
+Given these conditions, we held regular sync meetings and worked late nights to accelerate development. Fortunately, our hard work paid off — we delivered the system to the client, who appreciated the new design and confirmed all features were working properly.
+
+## Tech Stack & Tools
+
+<div className='flex gap-x-3'>
+  <TechStackToolTip techStack='nextjs' className='size-10' />
+  <TechStackToolTip techStack='typescript' className='size-10' />
+  <TechStackToolTip techStack='tailwind' className='size-10' />
+  <TechStackToolTip techStack='figma' className='size-10' />
+</div>
+
+**Next.js** → A React framework with extensive utilities that I used to
+implement the app's UI.\
+**TypeScript** → A JavaScript programming language with
+static typing that adds type safety by checking for mismatches at compile time.
+This helped identify bugs early and improved the development experience.\
+**TailwindCSS** → A CSS framework I used to streamline web styling.\
+**Figma** → A design tool used to create the app's interface.
+
+## Features
+
+Here are some of the features I implemented in this project.
+
+### Authentication
+
+<VideoCard
+  title='Sign up and sign in'
+  src='/videos/projects/chernival-authentication.mp4'
+/>
+### User
+
+#### Dashboard
+
+<div className='grid sm:grid-cols-2 gap-4'>
+  <ImageCard
+    title='User dashboard on the 1st registration step'
+    className='bg-black'
+    width={1905}
+    height={966}
+    src='/images/projects/chernival-dashboard-1.png'
+  />
+  <ImageCard
+    title='User dashboard on the 5th registration step'
+    className='bg-black'
+    width={1905}
+    height={966}
+    src='/images/projects/chernival-dashboard-5.png'
+  />
+</div>
+
+#### Payment
+
+<div className='grid sm:grid-cols-2 gap-4'>
+  <ImageCard
+    title='Payment -> status not paid'
+    width={1920}
+    height={1554}
+    src='/images/projects/chernival-payment-not_paid.png'
+  />
+  <VideoCard
+    title='Payment -> status valid'
+    src='/videos/projects/chernival-payment-valid.mp4'
+  />
+</div>
+
+#### Identity
+
+<ImageCard
+  title='Identity -> display user and teams identity'
+  containerClassName='w-full'
+  width={1905}
+  height={966}
+  className='w-full'
+  src='/images/projects/chernival-identity.png'
+/>
+
+#### Contest
+
+<VideoCard
+  title='Contest -> contest modal, contest credentials'
+  src='/videos/projects/chernival-contest.mp4'
+/>
+
+### Admin
+
+#### Dashboard
+
+<ImageCard
+  title='Dashboard -> user registration status statistics, sidebar'
+  containerClassName='w-full'
+  width={1905}
+  height={966}
+  className='w-full'
+  src='/images/projects/chernival-admin-dashboard.png'
+/>
+
+#### Participant
+
+<ImageCard
+  title='Participant -> manage and track participant data/status'
+  containerClassName='w-full'
+  width={1905}
+  height={966}
+  className='w-full'
+  src='/images/projects/chernival-admin-participant.png'
+/>
+
+#### Token
+
+<ImageCard
+  title='Token -> manage and track contest token distribution'
+  containerClassName='w-full'
+  width={1905}
+  height={966}
+  className='w-full'
+  src='/images/projects/chernival-admin-token-management.png'
+/>
+
+#### Promotion Code
+
+<ImageCard
+  title='Promotion code -> manage and track contest promotion code distribution'
+  containerClassName='w-full'
+  width={1905}
+  height={966}
+  className='w-full'
+  src='/images/projects/chernival-admin-promotion-management.png'
+/>
