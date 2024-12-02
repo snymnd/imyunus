@@ -2,6 +2,8 @@ import { ElementType } from 'react';
 
 import Bootstrap from '~/svg/bootstrap.svg';
 import Bun from '~/svg/bun.svg';
+import Elysia from '~/svg/elysia.svg';
+import Flask from '~/svg/flask.svg';
 import Gcp from '~/svg/gcp.svg';
 import Laravel from '~/svg/laravel.svg';
 import Mongodb from '~/svg/mongodb.svg';
@@ -21,6 +23,8 @@ const _techStack = [
   'mongodb',
   'gcp',
   'laravel',
+  'elysia',
+  'flask',
   'bootstrap',
 ] as const;
 export type TechStackType = (typeof _techStack)[number];
@@ -56,6 +60,14 @@ export const TechStackIcons: {
   bun: {
     name: 'Bun',
     Icon: Bun,
+  },
+  elysia: {
+    name: 'Elysia',
+    Icon: Elysia,
+  },
+  flask: {
+    name: 'Flask',
+    Icon: Flask,
   },
   mongodb: {
     name: 'MongoDB',

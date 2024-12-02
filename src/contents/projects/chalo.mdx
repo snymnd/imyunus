@@ -1,48 +1,152 @@
 ---
 title: 'Chalo'
-publishedAt: '2024-11-23'
-updatedAt: '2024-11-23'
-images: ['chalo-1.png']
-techStack: ['nextjs', 'tailwind', 'typescript', 'bun', 'mongo']
-summary: 'Web app providing electronic medical records and integrated health facility management with AI technology.'
+images: ['chalo-1.png', 'chalo-2.png', 'chalo-3.png', 'chalo-4.png']
+techStack:
+  [
+    'nextjs',
+    'typescript',
+    'tailwind',
+    'bun',
+    'elysia',
+    'mongodb',
+    'webrtc',
+    'gcp',
+  ]
+summary: 'Random video chat app with personalize user match using content-based filtering recommender system'
+priority: 10
+liveDemo: 'https://beta.chalo.fun'
 ---
 
 ## Overview
 
-The debate between using spaces and tabs for indentation in coding may seem trivial to the uninitiated, but it is a topic that continues to inspire passionate discussions among developers. This seemingly minor choice can affect code readability, maintenance, and even team dynamics.
+You may know or have used [Omegle](https://www.omegle.com/) or [OmeTv](https://ome.tv/). These platforms are known as _random video chat_ apps that let you have video calls with strangers worldwide.
 
-Let's delve into the arguments for both sides and consider why this debate remains relevant in the software development world.
+Traditional random video chat apps match users randomly, without considering their interests. However, conversations become more engaging when users connect with people who share their interests—whether it's hobbies, favorite foods, travel experiences, or other topics. This is where **Chalo** comes in.
 
-```ts
-function greet(name: string): string {
-  return `Hello, ${name}!`;
-}
-asd;
-let message: string = greet(123);
-```
+Like other random video chat apps, Chalo enables video communication with strangers. The key difference is that Chalo uses a _content-based filtering (CBF)_ recommender system to match users based on their preferences.
 
-## The Case for Spaces
+I developed this project as my bachelor's degree thesis, serving as the fullstack developer.
 
-Advocates for using spaces argue that it ensures consistent code appearance across different editors, tools, and platforms. Because a space is a universally recognized character with a consistent width, code indented with spaces will look the same no matter where it's viewed. This consistency is crucial for maintaining readability and avoiding formatting issues when code is shared between team members or published online.
+## Challenge
 
-Additionally, some programming languages and style guides explicitly recommend spaces for indentation, suggesting a certain number of spaces (often two or four) per indentation level. Adhering to these recommendations can be essential for projects that aim for best practices in code quality and readability.
+As the only developer for my thesis project, I had to handle everything: architecture design, UI implementation, API creation, and deployment. Initially, I thought it would be straightforward.
 
-## The Case for Tabs
+> It's just a video call app with strangers, what could be so hard about it?
 
-On the other side of the debate, proponents of tabs highlight the flexibility that tabs offer. Because the width of a tab can be adjusted in most text editors, individual developers can choose how much indentation they prefer to see, making the code more accessible and comfortable to read on a personal level. This adaptability can be particularly beneficial in teams with diverse preferences regarding code layout.
+Reality quickly proved otherwise. Technical challenges emerged that made me question my initial assumptions. I went through multiple iterations to find the right tech stack. Bugs became constant companions. Plus, I had to write a comprehensive 69-page thesis report.
 
-### The Case for Tabs Another
+Despite these challenges, each obstacle led me to valuable resources and expert advice. Through persistent learning and experimentation, I successfully chose appropriate technologies, implemented complex features, and resolved critical bugs. Ultimately, I delivered a working application, conducted user testing, and presented it to my thesis committee.
 
-Tabs also have the advantage of semantic meaning. A tab is explicitly meant to represent indentation, whereas a space is used for many purposes within code. This distinction can make automated parsing and manipulation of code simpler, as tools can more easily recognize and adjust indentation levels without confusing them with spaces used for alignment.
+## TechStack, Tools, & Architecture
 
-### The Case for Tabs Another2
+### TechStack
 
-## Hybrid Approaches and Team Dynamics
+<div className='flex gap-3 flex-wrap'>
+  <TechStackToolTip techStack='nextjs' className='size-10' />
+  <TechStackToolTip techStack='typescript' className='size-10' />
+  <TechStackToolTip techStack='tailwind' className='size-10' />
+  <TechStackToolTip techStack='bun' className='size-10' />
+  <TechStackToolTip techStack='elysia' className='size-10' />
+  <TechStackToolTip techStack='mongodb' className='size-10' />
+  <TechStackToolTip techStack='webrtc' className='size-10' />
+  <TechStackToolTip techStack='flask' className='size-10' />
+  <TechStackToolTip techStack='gcp' className='size-10' />
+  <TechStackToolTip techStack='Twilio' className='size-10' />
+  <TechStackToolTip techStack='figma' className='size-10' />
+  <TechStackToolTip techStack='notion' className='size-10' />
+</div>
 
-The debate often extends into discussions about hybrid approaches, where teams might use tabs for indentation and spaces for alignment within lines, attempting to combine the best of both worlds. However, such strategies require clear team agreements and disciplined adherence to coding standards to prevent formatting chaos.
+**NextJs** → A React framework with comprehensive utilities for UI implementation.\
+**Typescript** → A statically-typed JavaScript that enhances code reliability and developer experience by catching type errors early.\
+**TailwindCSS** → A utility-first CSS framework that streamlines web styling.\
+**Bun** → A high-performance JavaScript runtime powering the backend. I chose it for its speed advantage over NodeJs and most important is JavaScript.\
+**Elysia** → A Bun backend framework (similar to how NodeJs uses Express) that accelerates backend development.\
+**MongoDB** → A NoSQL database storing user data, chosen for its simplicity and suitable free tier.\
+**Firebase Realtime Database** → A real-time NoSQL database handling user queuing and synchronization before matching them.\
+**Flask** → A Python web framework used for the recommender system API. I separated the recommender system from the backend since Python is better suited to making a recommender system, and integrating Python programs into a JavaScript environment (my backend) would have been unnecessarily complex.\
+**Cloud Run** → Google Cloud's serverless platform hosting the frontend, backend, and recommender system API, eliminating infrastructure management concerns.\
+**WebRTC** → An open-source technology enabling peer-to-peer video calls and chat functionality.\
+**Twilio Network Traversal Service** → Provides reliable STUN/TURN servers for WebRTC connections across different networks and NATs.
 
-Ultimately, the choice between spaces and tabs often comes down to team consensus and project guidelines. In environments where collaboration and code sharing are common, agreeing on a standard that everyone follows is more important than the individual preferences of spaces versus tabs. Modern development tools and linters can help enforce these standards, making the choice less about technical limitations and more about team dynamics and coding philosophy.
+### Tools
 
-## Conclusion
+**Figma** → The design tool used for app interfaces.\
+**Notion** → Project management and progress tracking software.
 
-While the spaces vs. tabs debate might not have a one-size-fits-all answer, it underscores the importance of consistency, readability, and team collaboration in software development. Whether a team chooses spaces, tabs, or a hybrid approach, the key is to make a conscious choice that serves the project's needs and to adhere to it throughout the codebase. As with many aspects of coding, communication and agreement among team members are paramount to navigating this classic programming debate.
+### Architecture
+
+And here is the architecture of the Chalo system:
+
+<ImageCard
+  title='Chalo Architecture'
+  className='bg-black p-1 sm:p-2'
+  width={511}
+  height={681}
+  src='/images/projects/chalo-architecture.png'
+/>
+
+## Features
+
+To understand why certain features like user preferences are needed, let's look at how the Chalo system works with diagram bellow.
+
+<ImageCard
+  title='Chalo user flow'
+  className='bg-black p-1 sm:p-2'
+  width={461}
+  height={471}
+  src='/images/projects/chalo-user-flow.png'
+/>
+
+### Authentication
+
+<div className='space-y-2'>
+  <VideoCard
+    title='Sing up, email verification'
+    src='/videos/projects/chalo-register.mp4'
+  />
+  <VideoCard
+    title='Sign in with email and password'
+    src='/videos/projects/chalo-signin.mp4'
+  />
+  <VideoCard
+    title='Sign in with Google'
+    src='/videos/projects/chalo-signin_google.mp4'
+  />
+</div>
+
+### User Preferences
+
+<div className='space-y-2'>
+  <VideoCard
+    title='Adding preferences'
+    src='/videos/projects/chalo-preferences_form.mp4'
+  />
+  <VideoCard
+    title='Updating preferences'
+    src='/videos/projects/chalo-update_preferences.mp4'
+  />
+</div>
+
+### Random Video Call, Chat, and Topic Suggestion
+
+<VideoCard
+  title='Matching, Video call, Chat, Topic suggestion'
+  src='/videos/projects/chalo-rvc-chat-topic_suggestion.mp4'
+/>
+
+## Demo
+
+Here is my application demo video for bachelor's degree thesis (delivered in _bahasa_). You can try it by your self at [beta.chalo.fun](https://beta.chalo.fun)
+
+<div className='w-full aspect-video border-2 border-black rounded-lg overflow-hidden'>
+  <iframe
+    width='876'
+    height='495'
+    src='https://www.youtube.com/embed/ZWLucDBZugY?si=VEuF6z2liKLAuaZF'
+    title='Chalo App Demo'
+    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+    referrerPolicy='strict-origin-when-cross-origin'
+    allowFullScreen
+    className='w-full h-full'
+  />
+</div>
