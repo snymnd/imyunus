@@ -1,3 +1,4 @@
+import { MotionConfig } from 'motion/react';
 import type { AppProps } from 'next/app';
 import { Hanken_Grotesk, Space_Mono } from 'next/font/google';
 import { useRemoteRefresh } from 'next-remote-refresh/hook';
@@ -30,7 +31,17 @@ export default function App({ Component, pageProps }: AppProps) {
         'font-primary',
       )}
     >
-      <Component {...pageProps} />;
+      <MotionConfig
+        transition={{
+          delay: 0.1,
+          type: 'spring',
+          ease: 'easeIn',
+          duration: 0.4,
+          bounce: 0.1,
+        }}
+      >
+        <Component {...pageProps} />;
+      </MotionConfig>
     </div>
   );
 }
