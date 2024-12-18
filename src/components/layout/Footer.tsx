@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import * as React from 'react';
 
+import IconLink from '@/components/IconLink';
 import NextLink from '@/components/NextLink';
 
 import Email from '~/svg/email.svg';
@@ -31,29 +32,18 @@ export default function Footer() {
         <div>
           <h3 className='text-xl font-semibold'>Get in touch</h3>
           <div className='flex gap-2 items-center'>
-            <a
-              href='mailto:muh.yunus31050@gmail.com'
-              aria-label='email'
-              rel='noopener noreferrer'
-            >
-              <Email className='size-9' />
-            </a>
-            <a
+            <IconLink href='mailto:muh.yunus31050@gmail.com' aria-label='email'>
+              <Email className='size-8' />
+            </IconLink>
+            <IconLink
               href='https://linkedin.com/in/muh-yunus31'
               aria-label='linkedin'
-              target='_blank'
-              rel='noopener noreferrer'
             >
               <Linkedin className='size-8' />
-            </a>
-            <a
-              href='https://github.com/snymnd'
-              aria-label='github'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            </IconLink>
+            <IconLink href='https://github.com/snymnd' aria-label='github'>
               <Github className='size-8' />
-            </a>
+            </IconLink>
           </div>
         </div>
       </div>
