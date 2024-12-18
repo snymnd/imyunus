@@ -28,7 +28,7 @@ export default function TechStackToolTip({
   return (
     <TooltipProvider>
       <Tooltip delayDuration={200} {...rest}>
-        <TooltipTrigger>
+        <TooltipTrigger aria-label={techStack.name} id={techStack.name}>
           {techStack.Icon ? (
             <techStack.Icon className={cn('size-6', className)} />
           ) : (

@@ -28,7 +28,7 @@ const unifyMotionProps: MotionProps = {
 export default function Home({ projects }: HomeProps) {
   return (
     <Layout>
-      <Seo templateTitle='Home' />
+      <Seo title='Muhammad Yunus' />
 
       {/* Hero */}
       <section className='relative layout flex gap-x-8 flex-col sm:flex-row sm:items-center justify-center sm:justify-between section-screen'>

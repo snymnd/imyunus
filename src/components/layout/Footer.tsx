@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className='border-t-2 border-black py-6 mt-10'>
       <div className='flex flex-col sm:flex-row gap-4 sm:justify-between layout'>
         <div>
-          <NextLink href='/'>
+          <NextLink href='/' aria-label='my logo'>
             <figure className='w-10 sm:w-[4.375rem]'>
               <Image
                 src='/images/logo.png'
@@ -31,13 +31,27 @@ export default function Footer() {
         <div>
           <h3 className='text-xl font-semibold'>Get in touch</h3>
           <div className='flex gap-2 items-center'>
-            <a href='mailto:muh.yunus31050@gmail.com'>
+            <a
+              href='mailto:muh.yunus31050@gmail.com'
+              aria-label='email'
+              rel='noopener noreferrer'
+            >
               <Email className='size-9' />
             </a>
-            <a href='https://linkedin.com/in/muh-yunus31' target='_blank'>
+            <a
+              href='https://linkedin.com/in/muh-yunus31'
+              aria-label='linkedin'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <Linkedin className='size-8' />
             </a>
-            <a href='https://github.com/snymnd' target='_blank'>
+            <a
+              href='https://github.com/snymnd'
+              aria-label='github'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <Github className='size-8' />
             </a>
           </div>
