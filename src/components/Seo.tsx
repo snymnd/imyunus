@@ -5,12 +5,13 @@ import { openGraph } from '@/lib/helper';
 
 const defaultMeta = {
   title: 'Muhammad Yunus Portfolio',
-  siteName: 'Muhammad Yunus Portfolio',
+  siteName: 'imyunus.com',
   description: 'Portfolio of Muhammad Yunus',
-  url: 'https://github.com/snymnd',
+  url: 'https://imyunus.com',
   type: 'website',
   robots: 'follow, index',
-  image: 'https://my-project-og.vercel.app/images/my-logo-dark.png',
+  logo: 'https://my-project-og.vercel.app/images/my-logo.png',
+  image: `https://my-project-og.vercel.app/api/general?siteName=imyunus.com&description=Portfolio%20of%20Muhammad%20Yunus&logo=https%3A%2F%2Fmy-project-og.vercel.app%2Fimages%2Fmy-logo.png&logoHeight=180&logoWidth=350&theme=light&templateTitle=Hallo`,
 };
 
 type SeoProps = {
@@ -46,7 +47,8 @@ export default function Seo(props: SeoProps) {
       <meta property='og:site_name' content={meta.siteName} />
       <meta property='og:description' content={meta.description} />
       <meta property='og:title' content={meta.title} />
-      <meta name='image' property='og:image' content={meta.image} />
+      <meta property='og:image' content={meta.image} />
+      <meta property='og:image:alt' content={meta.title} />
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:title' content={meta.title} />
