@@ -90,7 +90,7 @@ const Toc = ({
 
   return (
     <div className={cn(className, 'sticky top-28')} {...rest}>
-      <h3 className='text-xl font-semibold'>Table Of Content</h3>
+      <h2 className='text-xl font-semibold'>Table Of Content</h2>
 
       <ul className='space-y-1 sm:space-y-2 mt-2 sm:mt-3'>
         {filteredToc.map((heading) => (

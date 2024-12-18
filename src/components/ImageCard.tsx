@@ -1,4 +1,4 @@
-import Image, { ImageProps } from 'next/image';
+import { ImageProps } from 'next/image';
 import * as React from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
@@ -7,6 +7,7 @@ import 'yet-another-react-lightbox/styles.css';
 
 import cn from '@/lib/cn';
 
+import LazyLoadImage from '@/components/LazyLoadImage';
 import MediaCard from '@/components/MediaCard';
 
 type ImageCardProps = {
@@ -37,17 +38,14 @@ export default function ImageCard({
       <button
         type='button'
         onClick={() => setOpenLightBox(true)}
-        className='cursor-zoom-in block'
+        className='cursor-zoom-in block w-full'
       >
-        <figure className='w-full'>
-          <Image
-            width={800}
-            height={800}
-            className={cn('object-contain my-0', className)}
-            {...rest}
-            alt={title}
-          />
-        </figure>
+        <LazyLoadImage
+          className='w-full'
+          imageClassname={cn('object-contain', className)}
+          {...rest}
+          alt={title}
+        />
       </button>
     </MediaCard>
   );

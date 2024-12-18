@@ -23,6 +23,7 @@ export default function VideoCard({
         preload='none'
         className={cn('my-0 w-full h-full', className)}
         autoPlay
+        playsInline
         controls
         muted
         loop

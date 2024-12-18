@@ -1,6 +1,5 @@
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight, Link } from 'lucide-icons-react';
-import Image from 'next/image';
 import { MDXClient } from 'next-mdx-remote-client';
 import {
   serialize,
@@ -24,6 +23,7 @@ import {
   CarouselPrevious,
 } from '@/components/Carousel';
 import Layout from '@/components/layout/Layout';
+import LazyLoadImage from '@/components/LazyLoadImage';
 import { MdxComponents } from '@/components/mdx/MdxComponents';
 import Toc from '@/components/mdx/Toc';
 import NextLink from '@/components/NextLink';
@@ -47,7 +47,10 @@ export default function Post({ mdxSource }: PostProps) {
 
   return (
     <Layout className='layout py-10 space-y-4'>
-      <Seo templateTitle={frontmatter.title} />
+      <Seo
+        templateTitle={`${frontmatter.title} Project`}
+        description={frontmatter.summary}
+      />
 
       <Lightbox
         open={openLightBox}
@@ -87,17 +90,15 @@ export default function Post({ mdxSource }: PostProps) {
                   className='cursor-zoom-in'
                   onClick={() => setOpenLightBox(true)}
                 >
-                  <figure>
-                    <Image
-                      src={`/images/projects/${image}`}
-                      alt={frontmatter.title}
-                      width={1920}
-                      height={0}
-                      className='rounded object-cover aspect-video object-top hover:object-bottom ease-linear'
-                      style={{ transitionDuration: '15000ms' }}
-                      priority
-                    />
-                  </figure>
+                  <LazyLoadImage
+                    src={`/images/projects/${image}`}
+                    alt={frontmatter.title}
+                    width={1080}
+                    height={620}
+                    imageClassname='rounded object-cover aspect-video object-top hover:object-bottom ease-linear'
+                    style={{ transitionDuration: '15000ms' }}
+                    sizes='(min-width: 1260px) 1202px, 95.96vw'
+                  />
                 </button>
               </CarouselItem>
             ))}
