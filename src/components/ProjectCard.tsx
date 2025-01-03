@@ -42,6 +42,7 @@ export default function ProjectCard({
           alt={title}
           width={400}
           height={245}
+          sizes='(min-width: 1260px) 390px, (min-width: 780px) calc(30.43vw + 13px), (min-width: 640px) 51.67vw, (min-width: 400px) 103.64vw, calc(62.5vw + 155px)'
           className='w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-grayscale duration-300'
           priority
         />

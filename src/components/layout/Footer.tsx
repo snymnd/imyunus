@@ -20,6 +20,7 @@ export default function Footer() {
                 alt='Muhammad Yunus logo'
                 width={70}
                 height={30}
+                sizes='(min-width: 640px) 70px, 40px'
                 className='w-full'
               />
             </figure>

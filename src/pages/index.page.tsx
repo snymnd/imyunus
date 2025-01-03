@@ -70,14 +70,15 @@ export default function Home({ projects }: HomeProps) {
         <motion.figure
           {...unifyMotionProps}
           transition={{ duration: 0.4 }}
-          className='sm:w-[22rem] md:w-[28rem] mt-10 sm:mt-0'
+          className='sm:w-[24rem] md:w-[30rem] mt-10 sm:mt-0'
         >
           <Image
             src='/images/hero.png'
             alt='Hero Image'
-            width={504}
-            height={504}
+            width={804}
+            height={804}
             className='w-full'
+            sizes='(min-width: 1140px) 480px, (min-width: 640px) 41.88vw, 91.56vw'
             priority
           />
         </motion.figure>
