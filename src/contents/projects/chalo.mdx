@@ -37,9 +37,7 @@ Reality quickly proved otherwise. Technical challenges emerged that made me ques
 
 Despite these challenges, each obstacle led me to valuable resources and expert advice. Through persistent learning and experimentation, I successfully chose appropriate technologies, implemented complex features, and resolved critical bugs. Ultimately, I delivered a working application, conducted user testing, and presented it to my thesis committee.
 
-## TechStack, Tools, & Architecture
-
-### TechStack
+## TechStack and Tools
 
 <div className='flex gap-3 flex-wrap'>
   <TechStackToolTip techStack='nextjs' className='size-10' />
@@ -51,29 +49,27 @@ Despite these challenges, each obstacle led me to valuable resources and expert 
   <TechStackToolTip techStack='webrtc' className='size-10' />
   <TechStackToolTip techStack='flask' className='size-10' />
   <TechStackToolTip techStack='gcp' className='size-10' />
-  <TechStackToolTip techStack='Twilio' className='size-10' />
   <TechStackToolTip techStack='figma' className='size-10' />
   <TechStackToolTip techStack='notion' className='size-10' />
 </div>
 
-**NextJs** → A React framework with comprehensive utilities for UI implementation.\
-**Typescript** → A statically-typed JavaScript that enhances code reliability and developer experience by catching type errors early.\
-**TailwindCSS** → A utility-first CSS framework that streamlines web styling.\
-**Bun** → A high-performance JavaScript runtime powering the backend. I chose it for its speed advantage over NodeJs and most important is JavaScript.\
-**Elysia** → A Bun backend framework (similar to how NodeJs uses Express) that accelerates backend development.\
-**MongoDB** → A NoSQL database storing user data, chosen for its simplicity and suitable free tier.\
-**Firebase Realtime Database** → A real-time NoSQL database handling user queuing and synchronization before matching them.\
-**Flask** → A Python web framework used for the recommender system API. I separated the recommender system from the backend since Python is better suited to making a recommender system, and integrating Python programs into a JavaScript environment (my backend) would have been unnecessarily complex.\
-**Cloud Run** → Google Cloud's serverless platform hosting the frontend, backend, and recommender system API, eliminating infrastructure management concerns.\
-**WebRTC** → An open-source technology enabling peer-to-peer video calls and chat functionality.\
-**Twilio Network Traversal Service** → Provides reliable STUN/TURN servers for WebRTC connections across different networks and NATs.
+|                                |                                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **NextJs**                     | A React framework with comprehensive utilities for UI implementation.                                                                                                                                                                                                                           |
+| **Typescript**                 | A statically-typed JavaScript that enhances code reliability and developer experience by catching type errors early.                                                                                                                                                                            |
+| **TailwindCSS**                | A utility-first CSS framework that streamlines web styling.                                                                                                                                                                                                                                     |
+| **Bun**                        | A high-performance JavaScript runtime powering the backend. I chose it for its speed advantage over NodeJs and most important is JavaScript.                                                                                                                                                    |
+| **Elysia**                     | A Bun backend framework (similar to how NodeJs uses Express) that accelerates backend development.                                                                                                                                                                                              |
+| **MongoDB**                    | A NoSQL database storing user data, chosen for its simplicity and suitable free tier.                                                                                                                                                                                                           |
+| **Firebase Realtime Database** | A real-time NoSQL database handling user queuing and synchronization before matching them.                                                                                                                                                                                                      |
+| **Flask**                      | A Python web framework used for the recommender system API. I separated the recommender system from the backend since Python is better suited to making a recommender system, and integrating Python programs into a JavaScript environment (my backend) would have been unnecessarily complex. |
+| **Cloud Run**                  | Google Cloud's serverless platform hosting the frontend, backend, and recommender system API, eliminating infrastructure management concerns.                                                                                                                                                   |
+| **WebRTC**                     | An open-source technology enabling peer-to-peer video calls and chat functionality.                                                                                                                                                                                                             |
+| **Figma**                      | The design tool used for app interfaces.                                                                                                                                                                                                                                                        |
+| **Notion**                     | Project management and progress tracking software.                                                                                                                                                                                                                                              |
+|                                |
 
-### Tools
-
-**Figma** → The design tool used for app interfaces.\
-**Notion** → Project management and progress tracking software.
-
-### Architecture
+## Architecture
 
 And here is the architecture of the Chalo system:
 

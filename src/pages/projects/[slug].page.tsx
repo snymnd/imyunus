@@ -75,10 +75,10 @@ export default function Post({ mdxSource }: PostProps) {
         >
           <div className='flex gap-x-2 items-center justify-end text-xl px-2'>
             <div className='flex gap-x-4'>
-              <CarouselPrevious className=''>
+              <CarouselPrevious>
                 <ChevronLeft className='text-white size-4 sm:size-6' />
               </CarouselPrevious>
-              <CarouselNext className=''>
+              <CarouselNext>
                 <ChevronRight className='text-white size-4 sm:size-6' />
               </CarouselNext>
             </div>
@@ -104,7 +104,7 @@ export default function Post({ mdxSource }: PostProps) {
             ))}
           </CarouselContent>
         </Carousel>
-        <div className='flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between items-end'>
+        <div className='flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between sm:items-end'>
           <div className='mt-4'>
             <h1 className='font-bold text-3xl tracking-tighter'>
               {frontmatter.title}
