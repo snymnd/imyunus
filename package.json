@@ -23,7 +23,7 @@
     "embla-carousel-react": "^8.5.1",
     "lucide-icons-react": "^1.0.2",
     "motion": "^11.12.0",
-    "next": "15.0.3",
+    "next": "15.2.4",
     "next-mdx-remote-client": "^1.0.3",
     "next-remote-refresh": "^0.10.1",
     "next-sitemap": "^4.2.3",
