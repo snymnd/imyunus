@@ -46,7 +46,7 @@ export default function Home({ projects }: HomeProps) {
             <motion.p
               {...unifyMotionProps}
               transition={{ delay: 0.2 }}
-              className='sm:text-lg text-gray-700'
+              className='sm:text-lg text-muted'
             >
               I’m Front-end Developer. Implementing design <br />
               into intuitive and fully functional website.
@@ -87,7 +87,7 @@ export default function Home({ projects }: HomeProps) {
           <motion.p
             {...unifyMotionProps}
             transition={{ delay: 0.2 }}
-            className='sm:text-lg text-gray-700'
+            className='sm:text-lg text-muted'
           >
             I’m Front-end Developer. Implementing design <br />
             into intuitive and fully functional website.
@@ -97,9 +97,9 @@ export default function Home({ projects }: HomeProps) {
               href='#about'
               className={cn(
                 'duration-200 transition-all',
-                'hover:shadow-[2px_2px_0_2px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5',
-                'active:shadow-none active:-translate-y-0 active:translate-x-0 active:bg-black active:text-white',
-                'border-2 border-black inline-block mt-8 cursor-pointer text-xl py-2 px-4 sm:py-4 sm:px-8 rounded-full font-spacemono',
+                'hover:shadow-[2px_2px_0_2px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_2px_rgba(237,237,237,1)] hover:-translate-x-0.5 hover:-translate-y-0.5',
+                'active:shadow-none active:-translate-y-0 active:translate-x-0 active:bg-foreground active:text-background',
+                'border-2 border-border inline-block mt-8 cursor-pointer text-xl py-2 px-4 sm:py-4 sm:px-8 rounded-full font-spacemono',
               )}
             >
               About Me
@@ -113,8 +113,8 @@ export default function Home({ projects }: HomeProps) {
         id='about'
         className='flex items-center -mt-10 pt-10 layout section-screen'
       >
-        <div className='py-10 flex flex-col md:flex-row justify-between gap-8 w-full'>
-          <div>
+        <div className='py-10 flex flex-col md:flex-row md:items-start justify-between gap-8 w-full'>
+          <div className='md:basis-2/5 md:flex-shrink-0'>
             <motion.h2
               {...unifyMotionProps}
               className='text-4xl sm:hidden font-spacemono font-bold tracking-tighter'
@@ -126,14 +126,15 @@ export default function Home({ projects }: HomeProps) {
                 className='w-full object-cover rounded-lg mt-4'
                 src='/images/about.png'
                 alt='About Image'
-                width={360}
-                height={450}
+                width={720}
+                height={900}
+                sizes='(min-width: 768px) 40vw, 100vw'
                 priority
               />
             </motion.figure>
           </div>
 
-          <article className='basis-3/5'>
+          <article className='md:basis-3/5'>
             <motion.h2
               {...unifyMotionProps}
               className='hidden sm:block text-5xl font-spacemono font-bold tracking-tighter'
@@ -142,7 +143,7 @@ export default function Home({ projects }: HomeProps) {
             </motion.h2>
             <motion.p
               {...unifyMotionProps}
-              className='mt-2 text-gray-600 leading-loose'
+              className='mt-2 text-muted leading-loose'
             >
               Hi, I’m <strong>Muhammad Yunus!</strong> I’m a Frontend Developer
               who loves building intuitive and functional web applications. I
@@ -161,7 +162,7 @@ export default function Home({ projects }: HomeProps) {
             </motion.h3>
             <motion.p
               {...unifyMotionProps}
-              className='text-sm sm:text-base text-gray-500'
+              className='text-sm sm:text-base text-muted'
             >
               Here some tech stack that I most likely to used
             </motion.p>
@@ -186,7 +187,7 @@ export default function Home({ projects }: HomeProps) {
           </motion.h2>
           <motion.p
             {...unifyMotionProps}
-            className='text-sm sm:text-base leading-relaxed text-gray-500 mt-2'
+            className='text-sm sm:text-base leading-relaxed text-muted mt-2'
           >
             Here are some of my works
           </motion.p>

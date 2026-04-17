@@ -4,6 +4,7 @@ import { fontFamily } from 'tailwindcss/defaultTheme';
 import tailwindAnimate from 'tailwindcss-animate';
 
 export default {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -18,6 +19,8 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        border: 'var(--border)',
+        muted: 'var(--muted)',
       },
       typography: {
         DEFAULT: {

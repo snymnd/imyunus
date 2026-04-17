@@ -109,13 +109,13 @@ export default function Post({ mdxSource }: PostProps) {
             <h1 className='font-bold text-3xl tracking-tighter'>
               {frontmatter.title}
             </h1>
-            <p className='text-gray-700 mt-2'>{frontmatter.summary}</p>
+            <p className='text-muted mt-2'>{frontmatter.summary}</p>
           </div>
           <div className='flex flex-wrap gap-2 sm:gap-4'>
             {frontmatter.repositories &&
               frontmatter.repositories.length > 0 && (
                 <div className='flex gap-x-1 items-center'>
-                  <Github className='size-4' />
+                  <Github className='size-4 dark:invert' />
                   {frontmatter.repositories.map((repo) => (
                     <NextLink
                       key={repo.name}
@@ -149,7 +149,7 @@ export default function Post({ mdxSource }: PostProps) {
           />
         </aside>
         <hr className='block sm:hidden' />
-        <article className='prose max-w-[50rem] font-sans'>
+        <article className='prose dark:prose-invert max-w-[50rem] font-sans'>
           <MDXClient {...mdxSource} components={MdxComponents} />
         </article>
       </section>

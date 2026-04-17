@@ -100,7 +100,7 @@ const Toc = ({
             style={{ marginLeft: `${(heading.depth - 2) * 1}rem` }}
           >
             <NextLink href={heading.href}>
-              <span className='text-gray-700'>{heading.value}</span>
+              <span className='text-muted'>{heading.value}</span>
             </NextLink>
           </li>
         ))}

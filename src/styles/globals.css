@@ -18,17 +18,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --border: #171717;
+  --muted: #6b7280;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --border: #ededed;
+  --muted: #9ca3af;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #000000;
-  }
 }
 
 body {
@@ -73,12 +75,10 @@ code[data-theme*=' '] span {
   background-color: var(--shiki-light-bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  code[data-theme*=' '],
-  code[data-theme*=' '] span {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
-  }
+.dark code[data-theme*=' '],
+.dark code[data-theme*=' '] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
 }
 
 code[data-line-numbers] {
@@ -173,12 +173,10 @@ code[data-theme*=' '] span {
   background-color: var(--shiki-light-bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  code[data-theme*=' '],
-  code[data-theme*=' '] span {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
-  }
+.dark code[data-theme*=' '],
+.dark code[data-theme*=' '] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
 }
 
 code[data-line-numbers] {

@@ -30,7 +30,9 @@ export default function TechStackToolTip({
       <Tooltip delayDuration={200} {...rest}>
         <TooltipTrigger aria-label={techStack.name} id={techStack.name}>
           {techStack.Icon ? (
-            <techStack.Icon className={cn('size-6', className)} />
+            <techStack.Icon
+              className={cn('size-6', techStack.invertOnDark && 'dark:invert', className)}
+            />
           ) : (
             <HelpCircle className='size-6' />
           )}

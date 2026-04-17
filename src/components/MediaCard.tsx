@@ -15,10 +15,10 @@ export default function MediaCard({
 }: MediaCardProps) {
   return (
     <div className={cn('', className)} {...rest}>
-      <p className='m-0 px-2 py-1 text-sm rounded-t-lg border-2 border-black bg-black text-white'>
+      <p className='m-0 px-2 py-1 text-sm rounded-t-lg border-2 border-border bg-foreground text-background'>
         {title}
       </p>
-      <div className='border-2 border-t-0 my-0 rounded-b-lg border-black overflow-hidden'>
+      <div className='border-2 border-t-0 my-0 rounded-b-lg border-border overflow-hidden'>
         {children}
       </div>
     </div>

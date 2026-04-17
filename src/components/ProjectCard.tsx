@@ -30,7 +30,7 @@ export default function ProjectCard({
       href={href}
       className={cn(
         'group flex flex-col rounded-xl overflow-hidden transition-all duration-200 cursor-pointer shadow-sm h-full',
-        'hover:shadow-[4px_4px_0_4px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1',
+        'hover:shadow-[4px_4px_0_4px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0_4px_rgba(237,237,237,1)] hover:-translate-x-1 hover:-translate-y-1',
         'active:shadow-none active:-translate-y-0 active:translate-x-0',
         className,
       )}
@@ -48,8 +48,8 @@ export default function ProjectCard({
         />
       </figure>
 
-      <div className='bg-[#F7F7F7] flex-grow flex flex-col'>
-        <div className='bg-white px-4 py-3 space-y-1 rounded-b-xl shadow-sm flex-grow'>
+      <div className='bg-[#F7F7F7] dark:bg-neutral-900 flex-grow flex flex-col'>
+        <div className='bg-white dark:bg-neutral-800 text-foreground px-4 py-3 space-y-1 rounded-b-xl shadow-sm flex-grow'>
           <h4 className='text-2xl font-spacemono tracking-tighter'>{title}</h4>
           <p className='font-light'>{description}</p>
         </div>

@@ -39,6 +39,7 @@ type TechStackProps = {
   name: string;
   docs?: string;
   Icon?: ElementType;
+  invertOnDark?: boolean;
 };
 export const TechStackIcons: {
   [K in TechStackType]: TechStackProps;
@@ -46,30 +47,37 @@ export const TechStackIcons: {
   react: {
     name: 'React.js',
     Icon: ReactIcons,
+    invertOnDark: true,
   },
   tailwind: {
     name: 'TailwindCSS',
     Icon: TailwindIcons,
+    invertOnDark: true,
   },
   nextjs: {
     name: 'Next.js',
     Icon: NextjsIcons,
+    invertOnDark: true,
   },
   typescript: {
     name: 'TypeScript',
     Icon: TypescriptIcons,
+    invertOnDark: true,
   },
   postgre: {
     name: 'PostgreSQL',
     Icon: Postgre,
+    invertOnDark: true,
   },
   webrtc: {
     name: 'WebRTC',
     Icon: Webrtc,
+    invertOnDark: true,
   },
   bun: {
     name: 'Bun',
     Icon: Bun,
+    invertOnDark: true,
   },
   elysia: {
     name: 'Elysia',
@@ -82,25 +90,31 @@ export const TechStackIcons: {
   mongodb: {
     name: 'MongoDB',
     Icon: Mongodb,
+    invertOnDark: true,
   },
   nodejs: {
     name: 'Nodejs',
     Icon: Nodejs,
+    invertOnDark: true,
   },
   hapi: {
     name: 'Hapi',
     Icon: Hapi,
+    invertOnDark: true,
   },
   gcp: {
     name: 'Google Cloud Platform (GCP)',
     Icon: Gcp,
+    invertOnDark: true,
   },
   laravel: {
     name: 'Laravel',
     Icon: Laravel,
+    invertOnDark: true,
   },
   bootstrap: {
     name: 'Bootstrap',
     Icon: Bootstrap,
+    invertOnDark: true,
   },
 };
