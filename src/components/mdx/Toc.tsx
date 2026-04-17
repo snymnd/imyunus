@@ -32,39 +32,52 @@ const Toc = ({
   const scrollToSection = (section: Element) => {
     const elementRect = section.getBoundingClientRect();
     const absoluteElementTop = elementRect.top + window.scrollY;
-    // set top as 1/5 window height above the element, avoid element covered by sticky header
     const top = absoluteElementTop - window.innerHeight / 5;
-    window.scrollTo({
-      top: top,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
+  const handleTocClick = (href: string) => {
+    const section = document.querySelector(href);
+    if (section) scrollToSection(section);
+  };
+
+  // Set initial active state from URL hash on mount
   React.useEffect(() => {
-    const handleHashChange = () => {
+    if (window.location.hash) {
       setActiveSection(window.location.hash);
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange();
-
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
+    }
   }, []);
 
+  // Track which heading is in view via IntersectionObserver
   React.useEffect(() => {
-    if (activeSection) {
-      const section = document.querySelector(activeSection);
-      if (section) {
-        scrollToSection(section);
-      }
-    }
-  }, [activeSection]);
+    if (!toc || toc.length === 0) return;
+
+    const headingIds = toc.map((h) => h.href.replace('#', ''));
+    const elements = headingIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible.length > 0) {
+          setActiveSection(`#${visible[0].target.id}`);
+        }
+      },
+      { rootMargin: '0px 0px -70% 0px', threshold: 0 },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [toc]);
 
   if (!toc) return null;
 
-  /* #region  /**=========== Filter =========== */
   const exludeRegexFilter = exclude
     ? Array.isArray(exclude)
       ? new RegExp(exclude.join('|'), 'i')
@@ -78,7 +91,6 @@ const Toc = ({
     parent !== 'root' && skipParents.includes(parent);
 
   const maxDepthFilter = (depth: TocItem['depth']): boolean => depth > maxDepth;
-  /* #endregion  /**======== Filter =========== */
 
   const filteredToc = toc.filter(
     (heading) =>
@@ -93,17 +105,32 @@ const Toc = ({
       <h2 className='text-xl font-semibold'>Table Of Content</h2>
 
       <ul className='space-y-1 sm:space-y-2 mt-2 sm:mt-3'>
-        {filteredToc.map((heading) => (
-          <li
-            key={heading.value}
-            className={cn('leading-tight')}
-            style={{ marginLeft: `${(heading.depth - 2) * 1}rem` }}
-          >
-            <NextLink href={heading.href}>
-              <span className='text-muted'>{heading.value}</span>
-            </NextLink>
-          </li>
-        ))}
+        {filteredToc.map((heading) => {
+          const isActive = activeSection === heading.href;
+          return (
+            <li
+              key={heading.value}
+              className={cn('leading-tight')}
+              style={{ marginLeft: `${(heading.depth - 2) * 1}rem` }}
+            >
+              <NextLink
+                href={heading.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleTocClick(heading.href);
+                }}
+                className={cn(
+                  'block border-l-2 pl-2 transition-colors duration-150',
+                  isActive
+                    ? 'border-foreground text-foreground font-medium'
+                    : 'border-transparent text-muted hover:text-foreground hover:border-foreground/40',
+                )}
+              >
+                {heading.value}
+              </NextLink>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
