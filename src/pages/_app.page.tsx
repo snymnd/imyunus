@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { MotionConfig } from 'motion/react';
 import type { AppProps } from 'next/app';
 import { Hanken_Grotesk, Space_Mono } from 'next/font/google';
@@ -49,6 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
         >
           <Component {...pageProps} />
         </MotionConfig>
+        <Analytics />
       </div>
     </ThemeProvider>
   );
