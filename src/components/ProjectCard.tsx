@@ -14,7 +14,8 @@ type ProjectCardProps = {
   href: string;
   techStack: TechStackType[];
   imagePath: string;
-} & React.ComponentPropsWithoutRef<'a'>;
+  priority?: boolean;
+};
 
 export default function ProjectCard({
   className,
@@ -23,18 +24,20 @@ export default function ProjectCard({
   href,
   techStack,
   imagePath,
-  ...rest
+  priority = false,
 }: ProjectCardProps) {
   return (
     <NextLink
       href={href}
       className={cn(
         'group flex flex-col rounded-xl overflow-hidden transition-all duration-200 cursor-pointer shadow-sm h-full',
-        'hover:shadow-[4px_4px_0_4px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0_4px_rgba(237,237,237,1)] hover:-translate-x-1 hover:-translate-y-1',
-        'active:shadow-none active:-translate-y-0 active:translate-x-0',
+        'hover:shadow-[4px_4px_0_4px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0_4px_rgba(237,237,237,1)]',
+        'hover:-translate-x-1 hover:-translate-y-1',
+        'active:shadow-none active:translate-x-0 active:translate-y-0',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground',
+        'focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         className,
       )}
-      {...rest}
     >
       <figure className='w-full aspect-video rounded-md overflow-hidden'>
         <Image
@@ -44,7 +47,7 @@ export default function ProjectCard({
           height={245}
           sizes='(min-width: 1260px) 390px, (min-width: 780px) calc(30.43vw + 13px), (min-width: 640px) 51.67vw, (min-width: 400px) 103.64vw, calc(62.5vw + 155px)'
           className='w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-grayscale duration-300'
-          priority
+          priority={priority}
         />
       </figure>
 

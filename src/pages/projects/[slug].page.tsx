@@ -1,5 +1,7 @@
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight, Link } from 'lucide-icons-react';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import dynamic from 'next/dynamic';
 import { MDXClient } from 'next-mdx-remote-client';
 import {
   serialize,
@@ -7,10 +9,8 @@ import {
   SerializeResult,
 } from 'next-mdx-remote-client/serialize';
 import * as React from 'react';
-import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
-import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/styles.css';
 
 import { plugins } from '@/lib/mdx';
@@ -34,13 +34,19 @@ import { Frontmatter, Scope } from '@/types/content';
 
 import Github from '~/svg/github.svg';
 
+const Lightbox = dynamic(() => import('yet-another-react-lightbox'), {
+  ssr: false,
+});
+
 type PostProps = {
-  mdxSource?: SerializeResult<Frontmatter, Scope>;
+  mdxSource: SerializeResult<Frontmatter, Scope>;
 };
+
 export default function Post({ mdxSource }: PostProps) {
   const [openLightBox, setOpenLightBox] = React.useState(false);
-  if (!mdxSource || 'error' in mdxSource) {
-    return;
+
+  if ('error' in mdxSource) {
+    return null;
   }
 
   const { frontmatter, scope } = mdxSource;
@@ -157,26 +163,27 @@ export default function Post({ mdxSource }: PostProps) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = () => {
   const files = getMarkdownFiles('projects');
 
   const paths = files.map((filename) => ({
-    // replace the extension .mdx with '' in the filename for slug
     params: { slug: filename.replace(/\.mdx$/, '') },
   }));
 
   return { paths, fallback: false };
-}
+};
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const file = await getMarkdownFromSlug(params.slug, 'projects');
-  if (!file) return { props: {} };
+export const getStaticProps: GetStaticProps<
+  PostProps,
+  { slug: string }
+> = async ({ params }) => {
+  const file = await getMarkdownFromSlug(params!.slug, 'projects');
+  if (!file) return { notFound: true };
 
   const { source, format } = file;
 
   const options: SerializeOptions<Scope> = {
     parseFrontmatter: true,
-    /** the "remark-flexible-toc" plugin produces vfile.data.toc */
     vfileDataIntoScope: 'toc',
     mdxOptions: {
       format,
@@ -190,4 +197,4 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   });
 
   return { props: { mdxSource } };
-}
+};

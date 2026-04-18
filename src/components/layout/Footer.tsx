@@ -13,11 +13,16 @@ export default function Footer() {
     <footer className='border-t-2 border-border py-6 mt-10'>
       <div className='flex flex-col sm:flex-row gap-4 sm:justify-between layout'>
         <div>
-          <NextLink href='/' aria-label='my logo'>
+          <NextLink
+            href='/'
+            aria-label='Muhammad Yunus — home'
+            className='focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded inline-block'
+          >
             <figure className='w-10 sm:w-[4.375rem]'>
               <Image
                 src='/images/logo.png'
-                alt='Muhammad Yunus logo'
+                alt=''
+                aria-hidden='true'
                 width={70}
                 height={30}
                 sizes='(min-width: 640px) 70px, 40px'
@@ -33,17 +38,23 @@ export default function Footer() {
         <div>
           <h3 className='text-xl font-semibold'>Get in touch</h3>
           <div className='flex gap-2 items-center'>
-            <IconLink href='mailto:muh.yunus31050@gmail.com' aria-label='email'>
-              <Email className='size-8 dark:invert' />
+            <IconLink
+              href='mailto:muh.yunus310502@gmail.com'
+              aria-label='Send email to Muhammad Yunus'
+            >
+              <Email className='size-8 dark:invert' aria-hidden='true' />
             </IconLink>
             <IconLink
               href='https://linkedin.com/in/muh-yunus31'
-              aria-label='linkedin'
+              aria-label='Muhammad Yunus on LinkedIn'
             >
-              <Linkedin className='size-8 dark:invert' />
+              <Linkedin className='size-8 dark:invert' aria-hidden='true' />
             </IconLink>
-            <IconLink href='https://github.com/snymnd' aria-label='github'>
-              <Github className='size-8 dark:invert' />
+            <IconLink
+              href='https://github.com/snymnd'
+              aria-label='Muhammad Yunus on GitHub'
+            >
+              <Github className='size-8 dark:invert' aria-hidden='true' />
             </IconLink>
           </div>
         </div>
