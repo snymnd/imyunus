@@ -56,7 +56,10 @@ export default function Seo(props: SeoProps) {
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:site' content='@imyunus' />
-      <meta name='twitter:creator' content={props.twitterCreator ?? '@imyunus'} />
+      <meta
+        name='twitter:creator'
+        content={props.twitterCreator ?? '@imyunus'}
+      />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />
