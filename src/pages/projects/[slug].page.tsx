@@ -39,7 +39,7 @@ const Lightbox = dynamic(() => import('yet-another-react-lightbox'), {
 });
 
 type PostProps = {
-  mdxSource: SerializeResult<Frontmatter, Scope>;
+  mdxSource?: SerializeResult<Frontmatter, Scope>;
 };
 
 export default function Post({ mdxSource }: PostProps) {
