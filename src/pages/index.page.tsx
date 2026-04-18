@@ -28,7 +28,27 @@ const unifyMotionProps: MotionProps = {
 export default function Home({ projects }: HomeProps) {
   return (
     <Layout>
-      <Seo title='Muhammad Yunus' />
+      <Seo
+        title='Muhammad Yunus — Frontend Developer'
+        description='Frontend Developer specializing in React, Next.js, and TypeScript. Building intuitive and fully functional web applications.'
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Muhammad Yunus',
+            url: 'https://imyunus.com',
+            jobTitle: 'Frontend Developer',
+            knowsAbout: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+            sameAs: [
+              'https://github.com/snymnd',
+              'https://linkedin.com/in/imyunus',
+            ],
+          }),
+        }}
+      />
 
       {/* Hero */}
       <section className='relative layout flex gap-x-8 flex-col sm:flex-row sm:items-center justify-center sm:justify-between section-screen'>
@@ -37,9 +57,9 @@ export default function Home({ projects }: HomeProps) {
             {...unifyMotionProps}
             className='font-spacemono font-bold text-5xl sm:text-7xl md:text-[5.5rem] tracking-tight leading-tight sm:leading-snug md:leading-[6.5rem]'
           >
-            Hay!
+            Hey!
             <br />
-            I'M Yunus
+            I&apos;m Yunus
           </motion.h1>
 
           <div className='sm:mt-16 sm:block hidden'>
@@ -74,7 +94,7 @@ export default function Home({ projects }: HomeProps) {
         >
           <Image
             src='/images/hero.png'
-            alt='Hero Image'
+            alt='Muhammad Yunus — Frontend Developer'
             width={804}
             height={804}
             className='w-full'
@@ -125,7 +145,7 @@ export default function Home({ projects }: HomeProps) {
               <Image
                 className='w-full object-cover rounded-lg mt-4'
                 src='/images/about.png'
-                alt='About Image'
+                alt='Muhammad Yunus profile photo'
                 width={720}
                 height={900}
                 sizes='(min-width: 768px) 40vw, 100vw'
