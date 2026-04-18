@@ -4,19 +4,20 @@ import { useRouter } from 'next/router';
 import { openGraph } from '@/lib/helper';
 
 const defaultMeta = {
-  title: 'Muhammad Yunus Portfolio',
+  title: 'Muhammad Yunus — Frontend Developer',
   siteName: 'imyunus.com',
-  description: 'Portfolio of Muhammad Yunus',
+  description:
+    'Portfolio of Muhammad Yunus, a Frontend Developer specializing in building intuitive and fully functional web applications with React, Next.js, and TypeScript.',
   url: 'https://imyunus.com',
   type: 'website',
   robots: 'follow, index',
-  logo: 'https://my-project-og.vercel.app/images/my-logo.png',
-  image: `https://my-project-og.vercel.app/api/general?siteName=imyunus.com&description=Portfolio%20of%20Muhammad%20Yunus&logo=https%3A%2F%2Fmy-project-og.vercel.app%2Fimages%2Fmy-logo.png&logoHeight=180&logoWidth=350&theme=light&templateTitle=Hallo`,
+  image: `https://my-project-og.vercel.app/api/general?siteName=imyunus.com&description=Frontend%20Developer%20%E2%80%94%20React%2C%20Next.js%2C%20TypeScript&logo=https%3A%2F%2Fmy-project-og.vercel.app%2Fimages%2Fmy-logo.png&logoHeight=180&logoWidth=350&theme=light&templateTitle=Muhammad+Yunus`,
 };
 
 type SeoProps = {
   date?: string;
   templateTitle?: string;
+  twitterCreator?: string;
 } & Partial<typeof defaultMeta>;
 
 export default function Seo(props: SeoProps) {
@@ -40,6 +41,7 @@ export default function Seo(props: SeoProps) {
       <title>{meta.title}</title>
       <meta name='robots' content={meta.robots} />
       <meta content={meta.description} name='description' />
+      <meta name='author' content='Muhammad Yunus' />
       <meta property='og:url' content={`${meta.url}${router.asPath}`} />
       <link rel='canonical' href={`${meta.url}${router.asPath}`} />
       {/* Open Graph */}
@@ -48,10 +50,13 @@ export default function Seo(props: SeoProps) {
       <meta property='og:description' content={meta.description} />
       <meta property='og:title' content={meta.title} />
       <meta property='og:image' content={meta.image} />
-      <meta property='og:logo' content={meta.logo} />
+      <meta property='og:image:width' content='1200' />
+      <meta property='og:image:height' content='630' />
       <meta property='og:image:alt' content={meta.title} />
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:site' content='@imyunus' />
+      <meta name='twitter:creator' content={props.twitterCreator ?? '@imyunus'} />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />

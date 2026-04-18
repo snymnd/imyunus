@@ -48,16 +48,16 @@ export default function Post({ mdxSource }: PostProps) {
   return (
     <Layout className='layout py-10 space-y-4'>
       <Seo
-        templateTitle={`${frontmatter.title} Project`}
+        templateTitle={frontmatter.title}
         description={frontmatter.summary}
       />
 
       <Lightbox
         open={openLightBox}
         close={() => setOpenLightBox(false)}
-        slides={frontmatter.images.map((image) => ({
+        slides={frontmatter.images.map((image, idx) => ({
           src: `/images/projects/${image}`,
-          alt: frontmatter.title,
+          alt: `${frontmatter.title} screenshot ${idx + 1}`,
         }))}
         plugins={[Zoom]}
       />
@@ -84,7 +84,7 @@ export default function Post({ mdxSource }: PostProps) {
             </div>
           </div>
           <CarouselContent>
-            {frontmatter.images.map((image) => (
+            {frontmatter.images.map((image, idx) => (
               <CarouselItem key={image}>
                 <button
                   className='cursor-zoom-in'
@@ -92,7 +92,7 @@ export default function Post({ mdxSource }: PostProps) {
                 >
                   <LazyLoadImage
                     src={`/images/projects/${image}`}
-                    alt={frontmatter.title}
+                    alt={`${frontmatter.title} screenshot ${idx + 1}`}
                     width={1080}
                     height={620}
                     imageClassname='rounded object-cover aspect-video object-top hover:object-bottom ease-linear'

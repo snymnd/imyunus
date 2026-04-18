@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://github.com/snymnd',
+  siteUrl: 'https://imyunus.com',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
