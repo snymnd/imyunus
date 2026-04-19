@@ -84,7 +84,8 @@ export default function Home({ projects }: HomeProps) {
               transition={{ delay: 0.2 }}
               className='sm:text-lg text-muted'
             >
-              Turning designs into fast, accessible, and delightful web experiences.
+              Turning designs into fast, accessible, and delightful web
+              experiences.
             </motion.p>
             <motion.div {...heroMotionProps} transition={{ delay: 0.2 }}>
               <CtaButton href='#about' className='mt-8'>
@@ -113,7 +114,8 @@ export default function Home({ projects }: HomeProps) {
             transition={{ delay: 0.2 }}
             className='sm:text-lg text-muted'
           >
-            Turning designs into fast, accessible, and delightful web experiences.
+            Turning designs into fast, accessible, and delightful web
+            experiences.
           </motion.p>
           <motion.div {...heroMotionProps} transition={{ delay: 0.3 }}>
             <CtaButton href='#about' className='mt-8'>
@@ -164,12 +166,12 @@ export default function Home({ projects }: HomeProps) {
               {...unifyMotionProps}
               className='mt-2 text-muted leading-loose'
             >
-              I&apos;m <strong>Muhammad Yunus</strong>, a Frontend Developer. I build web applications that are fast,
-              accessible, and a pleasure to use — bridging the gap between great
-              design and solid engineering.
+              I&apos;m <strong>Muhammad Yunus</strong>, a Frontend Developer. I
+              build web applications that are fast, accessible, and a pleasure
+              to use — bridging the gap between great design and solid
+              engineering.
               <br />
-              <br />
-              I thrive in collaborative environments, and I&apos;m always
+              <br />I thrive in collaborative environments, and I&apos;m always
               looking for problems worth solving.
             </motion.p>
             <motion.h3

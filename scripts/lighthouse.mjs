@@ -68,7 +68,12 @@ const mobileConfig = {
 };
 
 function slugify(url) {
-  return url.replace(/https?:\/\//, '').replace(/\//g, '_').replace(/[^a-z0-9_-]/gi, '') || 'root';
+  return (
+    url
+      .replace(/https?:\/\//, '')
+      .replace(/\//g, '_')
+      .replace(/[^a-z0-9_-]/gi, '') || 'root'
+  );
 }
 
 function scoreColor(score) {
@@ -92,11 +97,17 @@ function fmtSec(val) {
 const rows = [];
 
 async function runAudit(url, formFactor) {
-  const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless', '--no-sandbox', '--disable-dev-shm-usage'] });
+  const chrome = await chromeLauncher.launch({
+    chromeFlags: ['--headless', '--no-sandbox', '--disable-dev-shm-usage'],
+  });
   const config = formFactor === 'desktop' ? desktopConfig : mobileConfig;
 
   try {
-    const result = await lighthouse(url, { port: chrome.port, output: ['html', 'json'] }, config);
+    const result = await lighthouse(
+      url,
+      { port: chrome.port, output: ['html', 'json'] },
+      config,
+    );
     if (!result) throw new Error('Lighthouse returned no result');
 
     const { lhr, report } = result;
@@ -132,20 +143,23 @@ async function runAudit(url, formFactor) {
 function printSummary() {
   console.log('\n\x1b[1m─── Lighthouse Results ───\x1b[0m');
   console.log(
-    `${'URL'.padEnd(35)} ${'Form'.padEnd(8)} ${'Perf'.padEnd(6)} ${'A11y'.padEnd(6)} ${'BP'.padEnd(6)} ${'SEO'.padEnd(6)} ${'FCP'.padEnd(8)} ${'LCP'.padEnd(8)} ${'TBT'.padEnd(8)} ${'CLS'.padEnd(6)} ${'SI'.padEnd(8)}`
+    `${'URL'.padEnd(35)} ${'Form'.padEnd(8)} ${'Perf'.padEnd(6)} ${'A11y'.padEnd(6)} ${'BP'.padEnd(6)} ${'SEO'.padEnd(6)} ${'FCP'.padEnd(8)} ${'LCP'.padEnd(8)} ${'TBT'.padEnd(8)} ${'CLS'.padEnd(6)} ${'SI'.padEnd(8)}`,
   );
   console.log('─'.repeat(120));
   for (const r of rows) {
-    const urlShort = r.url.replace('http://localhost:3000', '').padEnd(35) || '/'.padEnd(35);
+    const urlShort =
+      r.url.replace('http://localhost:3000', '').padEnd(35) || '/'.padEnd(35);
     console.log(
-      `${urlShort} ${r.formFactor.padEnd(8)} ${scoreColor(r.perf).padEnd(6)} ${scoreColor(r.a11y).padEnd(6)} ${scoreColor(r.bp).padEnd(6)} ${scoreColor(r.seo).padEnd(6)} ${fmtSec(r.fcp).padEnd(8)} ${fmtSec(r.lcp).padEnd(8)} ${fmtMs(r.tbt).padEnd(8)} ${(r.cls != null ? r.cls.toFixed(3) : 'n/a').padEnd(6)} ${fmtSec(r.si).padEnd(8)}`
+      `${urlShort} ${r.formFactor.padEnd(8)} ${scoreColor(r.perf).padEnd(6)} ${scoreColor(r.a11y).padEnd(6)} ${scoreColor(r.bp).padEnd(6)} ${scoreColor(r.seo).padEnd(6)} ${fmtSec(r.fcp).padEnd(8)} ${fmtSec(r.lcp).padEnd(8)} ${fmtMs(r.tbt).padEnd(8)} ${(r.cls != null ? r.cls.toFixed(3) : 'n/a').padEnd(6)} ${fmtSec(r.si).padEnd(8)}`,
     );
   }
   console.log(`\nReports saved to: ${outDir}\n`);
 }
 
 async function main() {
-  console.log(`\nAuditing ${URLS.length} URL(s) × ${FORM_FACTORS.length} form factors...\n`);
+  console.log(
+    `\nAuditing ${URLS.length} URL(s) × ${FORM_FACTORS.length} form factors...\n`,
+  );
 
   for (const url of URLS) {
     for (const ff of FORM_FACTORS) {
