@@ -1,12 +1,16 @@
 import { MotionConfig } from 'motion/react';
 import type { AppProps } from 'next/app';
 import { Hanken_Grotesk, Space_Mono } from 'next/font/google';
-import { useRemoteRefresh } from 'next-remote-refresh/hook';
+import dynamic from 'next/dynamic';
 import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
 
 import cn from '@/lib/cn';
+
+const DevRefresh = dynamic(() => import('@/components/DevRefresh'), {
+  ssr: false,
+});
 
 const hanken_grotesk = Hanken_Grotesk({
   subsets: ['latin'],
@@ -20,11 +24,6 @@ const space_mono = Space_Mono({
   style: 'italic',
   variable: '--font-space-mono',
 });
-
-function DevRefresh() {
-  useRemoteRefresh();
-  return null;
-}
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
