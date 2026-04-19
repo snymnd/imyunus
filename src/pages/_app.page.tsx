@@ -1,7 +1,7 @@
 import { MotionConfig } from 'motion/react';
 import type { AppProps } from 'next/app';
-import { Hanken_Grotesk, Space_Mono } from 'next/font/google';
 import dynamic from 'next/dynamic';
+import { Hanken_Grotesk, Space_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
