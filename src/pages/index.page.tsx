@@ -26,12 +26,23 @@ const unifyMotionProps: MotionProps = {
   viewport: { once: true },
 };
 
+const heroFadeVariant = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+const heroMotionProps: MotionProps = {
+  variants: heroFadeVariant,
+  initial: 'hidden',
+  animate: 'visible',
+};
+
 export default function Home({ projects }: HomeProps) {
   return (
     <Layout>
       <Seo
         title='Muhammad Yunus — Frontend Developer'
-        description='Frontend Developer specializing in React, Next.js, and TypeScript. Building intuitive and fully functional web applications.'
+        description='Frontend Developer, specializing in React, Next.js, and TypeScript. Building fast, accessible, and delightful web experiences.'
       />
       <script
         type='application/ld+json'
@@ -59,7 +70,7 @@ export default function Home({ projects }: HomeProps) {
         <div className='space-y-10 sm:space-y-16'>
           <motion.h1
             id='hero-heading'
-            {...unifyMotionProps}
+            {...heroMotionProps}
             className='font-spacemono font-bold text-5xl sm:text-7xl md:text-[5.5rem] tracking-tight leading-tight sm:leading-snug md:leading-[6.5rem]'
           >
             Hey!
@@ -69,26 +80,21 @@ export default function Home({ projects }: HomeProps) {
 
           <div className='sm:mt-16 sm:block hidden'>
             <motion.p
-              {...unifyMotionProps}
+              {...heroMotionProps}
               transition={{ delay: 0.2 }}
               className='sm:text-lg text-muted'
             >
-              I&apos;m a Front-end Developer. Implementing design <br />
-              into intuitive and fully functional website.
+              Turning designs into fast, accessible, and delightful web experiences.
             </motion.p>
-            <FadeInMotion transition={{ delay: 0.2 }}>
+            <motion.div {...heroMotionProps} transition={{ delay: 0.2 }}>
               <CtaButton href='#about' className='mt-8'>
                 About Me
               </CtaButton>
-            </FadeInMotion>
+            </motion.div>
           </div>
         </div>
 
-        <motion.figure
-          {...unifyMotionProps}
-          transition={{ duration: 0.4 }}
-          className='sm:w-[24rem] md:w-[30rem] mt-10 sm:mt-0'
-        >
+        <figure className='sm:w-[24rem] md:w-[30rem] mt-10 sm:mt-0'>
           <Image
             src='/images/hero.png'
             alt='Muhammad Yunus — Frontend Developer'
@@ -97,23 +103,23 @@ export default function Home({ projects }: HomeProps) {
             className='w-full'
             sizes='(min-width: 1140px) 480px, (min-width: 640px) 41.88vw, 91.56vw'
             priority
+            fetchPriority='high'
           />
-        </motion.figure>
+        </figure>
 
         <div className='mt-10 sm:hidden'>
           <motion.p
-            {...unifyMotionProps}
+            {...heroMotionProps}
             transition={{ delay: 0.2 }}
             className='sm:text-lg text-muted'
           >
-            I&apos;m a Front-end Developer. Implementing design <br />
-            into intuitive and fully functional website.
+            Turning designs into fast, accessible, and delightful web experiences.
           </motion.p>
-          <FadeInMotion transition={{ delay: 0.3 }}>
+          <motion.div {...heroMotionProps} transition={{ delay: 0.3 }}>
             <CtaButton href='#about' className='mt-8'>
               About Me
             </CtaButton>
-          </FadeInMotion>
+          </motion.div>
         </div>
       </section>
 
@@ -158,15 +164,13 @@ export default function Home({ projects }: HomeProps) {
               {...unifyMotionProps}
               className='mt-2 text-muted leading-loose'
             >
-              Hi, I&apos;m <strong>Muhammad Yunus!</strong> I&apos;m a Frontend
-              Developer who loves building intuitive and functional web
-              applications. I enjoy solving problems and working collaboratively
-              to bring ideas to life. <br /> <br /> My journey in tech has
-              taught me the importance of learning, adaptability, and teamwork,
-              and I&apos;m always excited to tackle new challenges. <br />{' '}
-              Outside of coding, I&apos;m passionate about creating meaningful
-              user experiences and continuously improving my skills to grow as a
-              developer.
+              I&apos;m <strong>Muhammad Yunus</strong>, a Frontend Developer. I build web applications that are fast,
+              accessible, and a pleasure to use — bridging the gap between great
+              design and solid engineering.
+              <br />
+              <br />
+              I thrive in collaborative environments, and I&apos;m always
+              looking for problems worth solving.
             </motion.p>
             <motion.h3
               {...unifyMotionProps}
@@ -178,7 +182,7 @@ export default function Home({ projects }: HomeProps) {
               {...unifyMotionProps}
               className='text-sm sm:text-base text-muted'
             >
-              Here some tech stack that I most likely to used
+              Technologies I reach for on most projects
             </motion.p>
             <FadeInMotion className='flex gap-x-3 mt-3'>
               <TechStackToolTip techStack='typescript' className='size-14' />
@@ -208,7 +212,7 @@ export default function Home({ projects }: HomeProps) {
             {...unifyMotionProps}
             className='text-sm sm:text-base leading-relaxed text-muted mt-2'
           >
-            Here are some of my works
+            A selection of things I&apos;ve built
           </motion.p>
           <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4'>
             {projects.map((project, index) => (
