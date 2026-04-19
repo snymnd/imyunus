@@ -13,7 +13,9 @@
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "prepare": "husky install",
-    "postbuild": "next-sitemap --config next-sitemap.config.js"
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "lh": "node scripts/lighthouse.mjs",
+    "lh:build": "pnpm build && pnpm start &"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.1.4",
@@ -54,6 +56,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
+    "chrome-launcher": "^1.2.1",
     "eslint": "^9.14.0",
     "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
@@ -61,6 +64,7 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^15.12.0",
     "husky": "^8.0.3",
+    "lighthouse": "^13.1.0",
     "lint-staged": "^15.2.0",
     "postcss": "^8",
     "prettier": "^3.3.3",

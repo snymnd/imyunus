@@ -10,7 +10,7 @@ import cn from '@/lib/cn';
 
 const hanken_grotesk = Hanken_Grotesk({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '600', '700'],
   variable: '--font-hanken-grotesk',
 });
 
@@ -21,9 +21,12 @@ const space_mono = Space_Mono({
   variable: '--font-space-mono',
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+function DevRefresh() {
   useRemoteRefresh();
+  return null;
+}
 
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider
       attribute='class'
@@ -47,6 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
             bounce: 0.1,
           }}
         >
+          {process.env.NODE_ENV !== 'production' && <DevRefresh />}
           <Component {...pageProps} />
         </MotionConfig>
       </div>
